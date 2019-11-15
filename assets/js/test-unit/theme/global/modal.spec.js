@@ -1,5 +1,6 @@
 import modalFactory, { ModalEvents } from '../../../theme/global/modal';
 import $ from 'jquery';
+import foundation from '../../../theme/global/foundation';
 
 function attachHtml(html) {
     const $element = $(html);
@@ -13,6 +14,9 @@ describe('Modal', () => {
     let modal;
 
     beforeEach(() => {
+        window.Foundation.global.namespace = '';
+        foundation($(document));
+
         $element = attachHtml(`
             <div id="modal" class="modal" data-reveal>
                 <div class="modal-content"></div>
